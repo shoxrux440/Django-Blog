@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<center>
+    </br>
+    {% for item in items %}
+    <h1>{{item.shop}}</h1>
+    {% endfor %}
+  <main class="center">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Count</th>
+            <th scope="col">Price</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ item.product}}</td>
+                <td>{{ item.count }}</td>
+                <td>{{ item.price}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+
+    </table>
+</main>
+
+</center>
+
+
+
+
+{% endblock content %}

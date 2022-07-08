@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html'%}
+{% load static %}
+
+{% block content %}
+<center>
+    {% if searched %}
+     {% if prods %}
+    <h1>You searched For...
+
+    {{searched }}
+    </h1>
+    </br>
+    <div class="container">
+    <div class="row">
+        {% for product in prods %}
+        <div class="col-md-4">
+          <div class="product-card mb-4 shadow-sm">
+           <img class="card-img-top" src="{% static 'media/default.jpg' %} " alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{product.description}}</p>
+               <p class="card-text"><a href="{% url 'category' product.category|slugify %}">Category: {{product.category}}</a></p>
+                <p class="card-text"><a href="{% url 'subcategory' product.subcategory|slugify %}">Subcategory: {{product.subcategory}}</a></p>
+                <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <a class="btn btn-info " href="{% url 'product_update' product.id %}">Edit</a>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <h1>Hey! You Forgot To search For a Venue</h1>
+     {% endif %}
+    {% endif %}
+</center>
+{% endblock content %}

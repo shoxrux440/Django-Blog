@@ -1,0 +1,36 @@
+ {% extends 'layouts/base.html' %}
+ {% load static %}
+ {% block content %}
+
+
+
+
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for product in items %}
+        <div class="col-md-4">
+          <div class="product-card mb-4 shadow-sm">
+           <img class="card-img-top" src="{% static 'media/default.jpg' %} " alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{product__product.description}}</p>
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                <small class="text-muted">{{product.price}} $</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+
+
+ {% endblock content %}
+
