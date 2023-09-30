@@ -1,2 +1,2 @@
 # Django-Blog
-My frst Django Project
+My first Django Project
